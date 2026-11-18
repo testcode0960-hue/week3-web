@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>마무리 배포</title>
+<script>if(window.__LESSON_EMBED__?.compact)document.documentElement.classList.add('compact');</script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8f6fb;color:#2a203d;font:18px/1.65 system-ui,'Malgun Gothic',sans-serif;min-height:100vh;display:grid;place-items:center;padding:28px}main{width:min(100%,1000px);background:#fff;border:1px solid #dfd6eb;border-radius:28px;overflow:hidden;box-shadow:0 22px 65px #30204412}.hero{padding:46px 52px 40px;background:#2d2246;color:#fff}.eyebrow{display:flex;align-items:center;gap:10px;color:#b8ead7;font-size:15px;font-weight:700;letter-spacing:.04em}.dot{width:9px;height:9px;border-radius:50%;background:#b8ead7}h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.055em;line-height:1.2;margin:21px 0}p{margin:0}.hero p{color:#ddd3ec;max-width:700px}.version{display:inline-block;margin-top:27px;padding:8px 16px;border:1px solid #8b78a7;border-radius:999px;font-size:16px;color:#e9dfff}.content{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:38px 52px}.content h2{font-size:25px;line-height:1.4;letter-spacing:-.035em;margin:0 0 12px}.muted{color:#6d627b;font-size:16px}button{font:inherit;font-weight:750;line-height:1.4;background:#7051d6;color:#fff;border:0;padding:14px 22px;border-radius:12px;cursor:pointer;margin-top:24px}button:hover{background:#5b3fba}button:focus-visible{outline:3px solid #339876;outline-offset:5px}.result{padding:24px;background:#e6f5ed;border:1px solid #cbe5d8;border-radius:18px;display:flex;flex-direction:column;justify-content:center;gap:12px}.count{display:flex;align-items:baseline;gap:8px;color:#385846}.count strong{font-size:48px;line-height:1.15;font-weight:800;letter-spacing:-.04em}.result p{font-size:16px;color:#3b5b49;min-height:3.3em}footer{padding:18px 52px;border-top:1px solid #e9e1ef;font-size:14px;color:#766784;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}@media(max-width:650px){body{padding:14px}.hero{padding:30px 26px}.content{grid-template-columns:1fr;padding:27px 26px;gap:24px}.result{padding:21px}footer{padding:17px 26px}.hero p{font-size:16px}}
+h1,h2{word-break:keep-all}.compact body{padding:10px;font-size:16px}.compact .hero{padding:18px 32px 16px}.compact .eyebrow{font-size:13px}.compact h1{font-size:40px;margin:12px 0}.compact .hero p{font-size:14px;max-width:none}.compact .hero p br{display:none}.compact .version{margin-top:12px;padding:5px 13px;font-size:13px}.compact .content{padding:16px 32px;gap:24px}.compact .content h2{font-size:22px;margin-bottom:8px}.compact .muted{font-size:14px}.compact button{font-size:15px;margin-top:14px;padding:10px 17px}.compact .result{padding:16px 20px;gap:7px}.compact .count strong{font-size:36px}.compact .result p{font-size:14px;min-height:2.8em}.compact footer{padding:11px 32px;font-size:12px}@media(max-width:650px){.compact .hero{padding:23px}.compact h1{font-size:34px}.compact .content{padding:23px}.compact .hero p br{display:block}.compact footer{padding:15px 23px}}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span>웹 배포 연습</div>
+    <!-- 선택 수정: 아래 큰 제목을 바꾸고 다시 배포해 보세요. -->
+    <h1>마무리배포</h1>
+    <p>내 컴퓨터에서 만든 화면을 웹 주소로 공개합니다.<br> 공개 주소에서 제목과 버튼 동작을 확인해 보세요.</p>
+    <!-- 선택 수정: 아래 버전 문구도 함께 바꿉니다. -->
+    <div class="version">버전 1 · 첫 화면 공개</div>
+  </header>
+  <div class="content">
+    <section aria-labelledby="check-title">
+      <h2 id="check-title">화면과 동작을 함께 확인하기</h2>
+      <p class="muted">아래 버튼을 누르면 확인 횟수와 안내 문구가 바뀝니다. 새로고침하면 확인 횟수는 0으로 돌아갑니다.</p>
+      <button id="check" type="button">버튼 동작 확인</button>
+    </section>
+    <section class="result" aria-label="버튼 확인 결과" aria-live="polite" aria-atomic="true">
+      <div class="count"><strong id="count">0</strong><span>번 확인</span></div>
+      <p id="message">버튼을 눌러 동작을 확인해 주세요.</p>
+    </section>
+  </div>
+  <footer><span>배포 확인용 예제</span><span>HTML 한 파일 · 외부 연결 없음</span></footer>
+</main>
+<script>
+let count = 0;
+document.getElementById('check').addEventListener('click', () => {
+  count += 1;
+  document.getElementById('count').textContent = count;
+  document.getElementById('message').textContent = '이 브라우저에서도 버튼이 동작합니다.';
+});
+</script>
+</body>
+</html>
